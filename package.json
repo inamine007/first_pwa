@@ -1,0 +1,25 @@
+{
+  "name": "first_pwa",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "core-js": "^3.9.1",
+    "node-sass": "^5.0.0",
+    "nuxt": "^2.15.3",
+    "sass-loader": "^10.1.1",
+    "vuex-persistedstate": "^4.0.0-beta.3"
+  },
+  "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/vuetify": "^1.11.3",
+    "stein-js-client": "0.0.2"
+  }
+}
