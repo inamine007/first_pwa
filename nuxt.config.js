@@ -26,6 +26,10 @@ export default {
     '@/assets/scss/_reset.scss'
   ],
 
+  env: {
+    API_URL: process.env.API_URL || '',
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/utils'
