@@ -79,7 +79,7 @@ export default {
 
 <style lang="scss">
 .v-btn {
-  position: fixed;
+  position: fixed !important;
   @for $value from 1 through 8 {
     &.T#{$value} {
       left: 10%;
