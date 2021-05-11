@@ -2,7 +2,7 @@
   <div>
     <v-container class="container">
       <h1>{{ tableNumber }}</h1>
-      <h2>お会計は終了しました。</h2>
+      <p class="f-item">お会計は終了しました。</p>
       <div class="mt-3"><v-btn @click="risetTable()" color="error" x-large>案内可能にする</v-btn></div>
       <div class="mt-3"><v-btn @click="linkTable()" color="secondary" x-large>テーブル画面に移動</v-btn></div>
     </v-container>
@@ -50,5 +50,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.f-item {
+  font-size: 1.1rem;
 }
 </style>
