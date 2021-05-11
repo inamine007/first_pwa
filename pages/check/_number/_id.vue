@@ -1,25 +1,28 @@
 <template>
   <div>
+    <Header />
     <v-container>
-      <h1>{{ tableNumber }}</h1>
-      <div class="small">{{ now }}</div>
-      <div class="small">取引ID:{{ id }}</div>
-      <hr>
-      <Check :orders="f_orders" />
-      <Check :orders="d_orders" />
-      <hr class="mb-2">
-      <div class="d-flex justify-space-between">小計 <span>￥{{ beforeTaxTotal }}</span></div>
-      <div class="d-flex justify-space-between">税 10% <span>￥{{ taxTotal }}</span></div>
-      <div class="total">合計 <span>￥{{ afterTaxTotal }}</span></div>
-      <v-text-field
-        v-model="oadukari"
-        name="oadukari"
-        type="number"
-        label="お預かり金額"
-        placeholder="0"></v-text-field>
-      <div class="total mb-3">お釣り <span>￥{{ otsuri.toLocaleString() }}</span></div>
-      <div v-if="(isCheck)" class="btn-right"><v-btn @click="checkTable()" color="warning" x-large>お会計</v-btn></div>
-      <div v-else class="btn-right"><v-btn disabled>お会計</v-btn></div>
+      <div class="wrapper">
+        <div class="small">{{ now }}</div>
+        <div class="small">取引ID:{{ id }}</div>
+        <hr>
+        <Check :orders="f_orders" />
+        <Check :orders="d_orders" />
+        <hr class="mb-2">
+        <div class="d-flex justify-space-between">小計 <span>￥{{ beforeTaxTotal }}</span></div>
+        <div class="d-flex justify-space-between">税 10% <span>￥{{ taxTotal }}</span></div>
+        <div class="total">合計 <span>￥{{ afterTaxTotal }}</span></div>
+        <v-text-field
+          v-model="oadukari"
+          name="oadukari"
+          type="number"
+          label="お預かり金額"
+          autocomplete="off"
+          placeholder="0"></v-text-field>
+        <div class="total mb-3">お釣り <span>￥{{ otsuri.toLocaleString() }}</span></div>
+        <div v-if="(isCheck)" class="btn-right"><v-btn @click="checkTable()" color="warning" x-large>お会計</v-btn></div>
+        <div v-else class="btn-right"><v-btn disabled>お会計</v-btn></div>
+      </div>
     </v-container>
   </div>
 </template>
@@ -27,11 +30,12 @@
 <script>
 import SteinStore from 'stein-js-client'
 import Check from '../../../components/Check.vue'
+import Header from '../../../components/Header.vue'
 
 const store = new SteinStore(process.env.API_URL)
 
 export default {
-  components: { Check },
+  components: { Check, Header },
   data() {
     return {
       id: this.$route.params.id,

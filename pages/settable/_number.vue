@@ -1,17 +1,17 @@
 <template>
   <div>
+    <Header />
     <v-container>
-      <h1>{{ tableNumber }}</h1>
       <div class="box-center">
         <div>
           <div class="d-flex align-center">
             <h2 class="mr-2">M</h2>
             <v-text-field
+            class="field"
             type="number"
             reverse
             v-model="men"
             name="men"
-            placeholder="0"
             solo
             height="60"
             ></v-text-field>
@@ -26,11 +26,11 @@
           <div class="d-flex align-center">
             <h2 class="mr-2">W</h2>
             <v-text-field
+            class="field"
             type="number"
             reverse
             v-model="women"
             name="women"
-            placeholder="0"
             solo
             height="60"
             ></v-text-field>
@@ -45,11 +45,11 @@
           <div class="d-flex align-center">
             <h2 class="mr-2">C</h2>
             <v-text-field
+            class="field"
             type="number"
             reverse
             v-model="children"
             name="children"
-            placeholder="0"
             solo
             height="60"
             ></v-text-field>
@@ -64,11 +64,11 @@
           <div class="d-flex align-center">
             <h2 class="mr-2">O</h2>
             <v-text-field
+            class="field"
             type="number"
             reverse
             v-model="others"
             name="others"
-            placeholder="0"
             solo
             height="60"
             ></v-text-field>
@@ -83,7 +83,7 @@
           <div class="btn-center">
             <v-btn
             x-large
-            color="primary"
+            dark
             @click="createTable()">OK</v-btn>
           </div>
         </div>
@@ -94,10 +94,12 @@
 
 <script>
 import SteinStore from 'stein-js-client'
+import Header from '../../components/Header.vue'
 
 const store = new SteinStore(process.env.API_URL)
 
 export default {
+  components: { Header },
   data() {
     return {
       tableNumber: this.$route.params.number,
@@ -182,8 +184,8 @@ h2 {
   font-size: 2rem;
   margin: 0 auto;
 }
-.v-text-field.v-text-field--solo .v-input__control {
-  padding-top: 20px;
+.field {
+  padding-top: 20px !important;
 }
 .btn-center {
   display: flex;
@@ -192,7 +194,7 @@ h2 {
 .box-center {
   position: fixed;
   top: 50%;
-  left: 0;
+  //left: 0;
   transform: translate(0, -50%);
   padding: 0 5%;
 }

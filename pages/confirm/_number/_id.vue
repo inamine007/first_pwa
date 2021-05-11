@@ -1,15 +1,17 @@
 <template>
   <div>
+    <Header />
     <v-container>
-      <h1>{{ tableNumber }}</h1>
-      <h3 class="mb-2">以下の内容で確定しますか？</h3>
-      <Confirm :menus="orders.f_menu" />
-      <Confirm :menus="orders.d_menu" />
-      <v-divider class="mt-2 mb-2"></v-divider>
-      <div class="total">
-        合計：<span>{{ orders.total }}円</span>
+      <div class="wrapper">
+        <h3 class="mb-2">以下の内容で確定しますか？</h3>
+        <Confirm :menus="orders.f_menu" />
+        <Confirm :menus="orders.d_menu" />
+        <v-divider class="mt-2 mb-2"></v-divider>
+        <div class="total">
+          合計：<span>{{ orders.total }}円</span>
+        </div>
+        <div class="btn-right mt-3"><v-btn @click="sendOrder(orders, tableNumber, id)" color="primary">確定</v-btn></div>
       </div>
-      <div class="btn-right mt-3"><v-btn @click="sendOrder(orders, tableNumber, id)" color="primary">確定</v-btn></div>
     </v-container>
   </div>
 </template>
@@ -17,11 +19,12 @@
 <script>
 import SteinStore from 'stein-js-client'
 import Confirm from '../../../components/Confirm.vue'
+import Header from '../../../components/Header.vue'
 
 const store = new SteinStore(process.env.API_URL)
 
 export default {
-  components: { Confirm },
+  components: { Confirm, Header },
   data() {
     return {
       id: this.$route.params.id,
@@ -120,3 +123,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+
+</style>

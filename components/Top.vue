@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style lang="scss">
-.v-btn {
+.table {
   position: fixed !important;
   @for $value from 1 through 8 {
     &.T#{$value} {

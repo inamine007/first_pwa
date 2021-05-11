@@ -54,17 +54,17 @@ export default {
   manifest: {
     name: "first_pwa",
     lang: "ja",
-    short_name: "FP",
+    short_name: "first_pwa",
     title: "first_pwa",
     "og:title": "first_pwa",
     description: "nuxt.jsでpwa開発",
     "og:description": "nuxt.jsでpwa開発",
-    theme_color: "#163956",
-    background_color: "#163956",
+    theme_color: "#000000",
+    background_color: "#000000",
   },
 
   workbox: {
-    dev: true, // Service Workerを開発環境で使用するかどうか
+    dev: false, // Service Workerを開発環境で使用するかどうか
   },
 
   styleResources: {

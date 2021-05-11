@@ -1,10 +1,22 @@
 <template>
   <div>
+    <v-app-bar
+      dense
+      dark>
+      <v-btn
+        class="ma-2"
+        dark
+        @click="back()">
+        <v-icon dark left>
+          mdi-arrow-left
+        </v-icon>Back
+      </v-btn>
+    </v-app-bar>
     <v-container>
       <h1 v-show="!orders.length">伝票はありません。</h1>
       <div v-for="(order, key) in orders" :key="key">
-        <v-card v-show="!order.served" class="pr-1 pl-1 pt-1 pb-1">
-          <div class="table">{{ order.table }}</div>
+        <v-card v-show="!order.served" class="pr-1 pl-1 pt-1 pb-1 mb-6">
+          <div class="d-table">{{ order.table }}</div>
           <div class="small">伝票ID:{{ order.id }}</div>
           <div class="count">人数:{{ order.people }}</div>
           <hr class="mb-2">
@@ -27,13 +39,13 @@ import SteinStore from 'stein-js-client'
 const store = new SteinStore(process.env.API_URL);
 
 export default {
- data() {
-   return {
-     isFood: false
-   }
- },
- async asyncData() {
-   const denpyo = await store.read("denpyo", { search: {deleted_flg: '0'} }).then(data => {
+  data() {
+    return {
+      isFood: false
+    }
+  },
+  async asyncData() {
+    const denpyo = await store.read("denpyo", { search: {deleted_flg: '0'} }).then(data => {
       return data;
     });
     let orders = [];
@@ -106,13 +118,16 @@ export default {
           console.log(res);
         });
       }
+    },
+    back() {
+      this.$router.push({path: '/'});
     }
   }
 }
 </script>
 
 <style lang="scss">
-.table {
+.d-table {
   font-size: 1.2rem;
 }
 .count {

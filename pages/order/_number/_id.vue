@@ -1,7 +1,7 @@
 <template>
   <div>
+    <Header />
     <v-container>
-      <h1>{{ tableNumber }}</h1>
       <v-card>
         <v-tabs
           v-model="tab"
@@ -46,6 +46,7 @@
 import SteinStore from 'stein-js-client'
 import Cart from '../../../components/Cart.vue'
 import Tab from '../../../components/Tab.vue'
+import Header from '../../../components/Header.vue'
 
 
 const store = new SteinStore(process.env.API_URL)
@@ -53,7 +54,8 @@ const store = new SteinStore(process.env.API_URL)
 export default {
   components: {
     Cart,
-    Tab
+    Tab,
+    Header
   },
   data() {
     return {
