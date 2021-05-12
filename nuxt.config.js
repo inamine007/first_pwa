@@ -48,6 +48,7 @@ export default {
   modules: [
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
+    '@nuxtjs/onesignal',
     "@nuxtjs/pwa"
   ],
 
@@ -61,10 +62,27 @@ export default {
     "og:description": "nuxt.jsでpwa開発",
     theme_color: "#000000",
     background_color: "#000000",
+    icons: [
+      {
+        "src": "/static/icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+    ]
   },
 
   workbox: {
     dev: false, // Service Workerを開発環境で使用するかどうか
+  },
+
+  oneSignal: {
+    init: {
+      appId: '5c8cec2f-a3b5-4cf2-9e92-716618bf06b4',
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+        disable: true
+      }
+    }
   },
 
   styleResources: {
