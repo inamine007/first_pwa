@@ -82,7 +82,8 @@ export default {
       welcomeNotification: {
         disable: true
       }
-    }
+    },
+    importScripts: ['sw.js'], 
   },
 
   styleResources: {
