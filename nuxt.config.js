@@ -64,7 +64,7 @@ export default {
     background_color: "#000000",
     icons: [
       {
-        "src": "/static/icon.png",
+        "src": "static/icon.png",
         "sizes": "512x512",
         "type": "image/png"
       },
@@ -77,7 +77,7 @@ export default {
 
   oneSignal: {
     init: {
-      appId: '5c8cec2f-a3b5-4cf2-9e92-716618bf06b4',
+      appId: '2e852bab-0fce-489e-a03f-367dd5778755',
       allowLocalhostAsSecureOrigin: true,
       welcomeNotification: {
         disable: true
